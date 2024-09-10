@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -12,7 +14,13 @@ public class pattern_132 {
                 max = st.pop();
             st.push(arr[i]);
         }
+
+        List<Integer> result = new ArrayList<>();
+        List<Integer> temp = result.stream().sorted().mapToInt(Integer::intValue).collect(ArrayList<Integer>::new,
+                ArrayList::add, ArrayList::addAll);
+        result.addAll(temp);
         return false;
+
     }
 
     public static void main(String[] args) {
